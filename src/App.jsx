@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import Single from "./components/Single.jsx";
 const App = () => {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <h1>My App</h1>
 
       <nav>
