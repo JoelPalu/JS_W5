@@ -20,6 +20,7 @@ const App = () => {
         <Route path='/profile' element={<Profile />} />
         <Route path='/Upload' element={<Upload />} />
         <Route path="/media/:id" element={<Single />} />
+        <Route path="/single" element={<Single />} />
       </Routes>
     </Router>
   );

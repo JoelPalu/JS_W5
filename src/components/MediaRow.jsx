@@ -20,7 +20,7 @@ const MediaRow = (props) => {
           <td>{item.filesize}</td>
           <td>{item.media_type}</td>
           <td>
-              <Link to={`media/${item.media_id}`} />
+            <Link to="/single" state={{item}}>Show</Link>
           </td>
         </tr>
     );
