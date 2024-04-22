@@ -4,10 +4,7 @@ import Button from "./UI/Button.jsx";
 import {Link} from "react-router-dom";
 
 const MediaRow = (props) => {
-    const {item, setSelectedItem} = props;
-    const handleClick = () => {
-        setSelectedItem(item);
-    };
+    const {item} = props;
 
     return (
         <tr>
@@ -19,6 +16,7 @@ const MediaRow = (props) => {
           <td>{new Date(item.created_at).toLocaleString('fi-FI')}</td>
           <td>{item.filesize}</td>
           <td>{item.media_type}</td>
+          <td>{item.username}</td>
           <td>
             <Link to="/single" state={{item}}>Show</Link>
           </td>
@@ -28,7 +26,6 @@ const MediaRow = (props) => {
 
 MediaRow.propTypes = {
     item: PropTypes.object.isRequired,
-    setSelectedItem: PropTypes.func.isRequired,
 };
 
 export default MediaRow;
