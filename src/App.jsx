@@ -1,9 +1,11 @@
 import './App.css';
-import Home from "./components/Home.jsx";
-import {Profile} from "./components/Profile.jsx";
-import Upload from "./components/Upload.jsx";
+import Home from "./views/Home.jsx";
+import {Profile} from "./views/Profile.jsx";
+import Upload from "./views/Upload.jsx";
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
-import Single from "./components/Single.jsx";
+import Single from "./views/Single.jsx";
+import Login from "./views/Login.jsx";
+import Logout from "./views/Logout.jsx";
 const App = () => {
   return (
     <Router basename={import.meta.env.BASE_URL}>
@@ -13,6 +15,7 @@ const App = () => {
         <Link to={'/'}>Home</Link>
         <Link to={'/profile'}>Profile</Link>
         <Link to={'/Upload'}>Upload</Link>
+        <Link to={"/login"}>Login</Link>
       </nav>
 
       <Routes>
@@ -21,6 +24,8 @@ const App = () => {
         <Route path='/Upload' element={<Upload />} />
         <Route path="/media/:id" element={<Single />} />
         <Route path="/single" element={<Single />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );

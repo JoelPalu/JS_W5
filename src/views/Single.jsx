@@ -1,5 +1,5 @@
 import {useLocation, useNavigate, useParams} from "react-router-dom";
-import Button from "./UI/Button.jsx";
+import Button from "../components/UI/Button.jsx";
 
 const Single = () =>{
   const location = useLocation().state.item;
