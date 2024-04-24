@@ -9,12 +9,11 @@ import Logout from "./views/Logout.jsx";
 import Layout from "./views/Layout.jsx";
 import {UserProvider} from "./contexts/UserContext.jsx";
 const App = () => {
+
   return (
     <>
-
         <Router basename={import.meta.env.BASE_URL}>
           <UserProvider>
-          <h1>My App</h1>
             <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<Home />} />

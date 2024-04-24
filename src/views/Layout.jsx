@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom"
 import SiteNavigation from "../components/SiteNavigation.jsx";
+import HandleLoginAuto from "../components/handleLoginAuto.jsx";
 
 const Layout = () => (
     <div>
