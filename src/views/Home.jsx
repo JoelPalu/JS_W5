@@ -1,5 +1,6 @@
 import MediaRow from "../components/MediaRow.jsx";
 import {useMedia} from "../hooks/apiHooks.js";
+import UserData from "../components/UserData.jsx";
 
 
 const Home = () => {

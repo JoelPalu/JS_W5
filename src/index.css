@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #122819;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,6 +24,13 @@
 }
 
 /* nav */
+nav {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  background-color: #34a62c;
+  padding: 1rem;
+}
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -36,6 +43,7 @@ nav ul {
 
 nav a {
   display: block;
+
   color: white;
   text-align: center;
   padding: 1rem;
@@ -43,7 +51,8 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #111111;
+  background-color: #1a811a;
+  border-radius: 1rem;
 }
 
 /* media item card */
