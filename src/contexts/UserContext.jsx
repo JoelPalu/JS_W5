@@ -17,6 +17,7 @@ export const UserProvider = ({children}) => {
     try{
       const userData = await login(credentials);
       localStorage.setItem("token", userData.token);
+      setUser(userData.user);
       navigate('/');
     }catch (e){
       alert(e.message);
@@ -25,7 +26,7 @@ export const UserProvider = ({children}) => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    setUser(null);
+    setUser(undefined);
     navigate('/');
   };
 

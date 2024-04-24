@@ -3,7 +3,7 @@ import Button from "./UI/Button.jsx";
 import {useUserContext} from "../contexts/UserContext.jsx";
 
 const SiteNavigation = () => {
-  const {handleLogout} = useUserContext();
+  const {user, handleLogout} = useUserContext();
   return(
     <div>
       <header>
@@ -11,11 +11,9 @@ const SiteNavigation = () => {
           <Link to="/">Etusivu 🏠</Link>
           <Link to="/profile">Profiili 😃</Link>
           <Link to="/upload">Upload</Link>
-          <Link to="/login">Login</Link>
-          <Button text={"Logout"} handleClick={() => {
-            handleLogout();
-            console.log("logout")
-          } }/>
+          {!user && <Link to="/login">Login</Link> }
+          {user && <Button text={"Logout"} handleClick={handleLogout} />}
+
         </nav>
       </header>
     </div>
