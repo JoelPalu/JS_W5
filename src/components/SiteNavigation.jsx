@@ -15,10 +15,13 @@ const SiteNavigation = () => {
       <header>
         <nav>
           <Link to="/">Etusivu 🏠</Link>
-          <Link to="/profile">Profiili 😃</Link>
-          <Link to="/upload">Upload</Link>
           {!user && <Link to="/login">Login</Link> }
-          {user && <Button text={"Logout"} handleClick={handleLogout} />}
+          {user &&
+            <>
+              <Link to="/profile">Profiili 😃</Link>
+              <Link to="/upload">Upload</Link>
+              <Button text={"Logout"} handleClick={handleLogout}/>
+            </>}
 
         </nav>
       </header>
