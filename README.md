@@ -1,3 +1,5 @@
 # React + Vite
 
-Click [here](https://users.metropolia.fi/~kirillsa/hooks/) to view page in the browser.
+
+custom hooks + forms
+Click [here](https://users.metropolia.fi/~kirillsa/wsk/forms/) to view page in the browser.
