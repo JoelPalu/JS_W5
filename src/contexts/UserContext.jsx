@@ -1,14 +1,15 @@
 
 import {createContext, useContext, useState} from 'react';
 import {useAuthentication, useUser} from "../hooks/apiHooks.js";
-import {useNavigate} from "react-router-dom";
-import useForm from "../hooks/formHooks.js";
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const UserContext = createContext(null);
+export const UserContext = createContext(null);
+
 
 export const UserProvider = ({children}) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(undefined);
   console.log("user in userprovider", user);
+  const location = useLocation();
 
   const {login,} = useAuthentication();
   const {getUserByToken} = useUser();
@@ -32,21 +33,23 @@ export const UserProvider = ({children}) => {
   };
 
   const handleAutoLogin = async () => {
-    const token = localStorage.getItem('token');
-    if (token){
-      try {
-        console.log("token", token)
-        const userData = await getUserByToken(token);
-        setUser(userData.user);
-        navigate('/')
-      }catch (e){
-        console.log(e.message);
+    try {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const userResult = await getUserByToken(token);
+        console.log("userResult", userResult);
+        setUser(userResult.user);
+        // when page is refreshed, the user is redirected to origin (see ProtectedRoute.jsx)
+        const origin = location.state.from.pathname || '/';
+        navigate(origin);
       }
+    } catch (e) {
+      console.log(e.message);
     }
   };
   //TODO remove uset and setuser
   return (
-    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleAutoLogin}}>
+    <UserContext.Provider value={{user, handleLogin, handleLogout, handleAutoLogin}}>
       {children}
     </UserContext.Provider>
   );

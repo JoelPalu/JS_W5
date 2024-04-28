@@ -1,12 +1,15 @@
 // ProtectedRoute.jsx
-import { Navigate } from 'react-router-dom';
-import { useUserContext } from '../hooks/contextHooks';
+import {Navigate, useLocation} from 'react-router-dom';
+import {useUserContext} from "../hooks/contextHooks.js";
+
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useUserContext();
+  const {user} = useUserContext();
+  const location = useLocation();
 
   if (!user) {
-    return <Navigate to="/" />;
+    console.log("location", location)
+    return <Navigate to="/" replace state={{ from: location }} />;
   }
 
   return children;

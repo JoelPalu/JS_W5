@@ -1,8 +1,16 @@
 import { Link, Outlet } from "react-router-dom"
 import SiteNavigation from "../components/SiteNavigation.jsx";
-import HandleLoginAuto from "../components/handleLoginAuto.jsx";
+import {useEffect} from "react";
+import {useUserContext} from "../contexts/UserContext.jsx";
 
-const Layout = () => (
+const Layout = () => {
+  const {handleAutoLogin} = useUserContext();
+  useEffect(() => {
+      handleAutoLogin();
+  }, []);
+
+
+  return(
     <div>
         <header>
           <SiteNavigation/>
@@ -14,6 +22,6 @@ const Layout = () => (
             Copyright 2024
         </footer>
     </div>
-)
+)};
 
 export default Layout
